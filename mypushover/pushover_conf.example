@@ -1,0 +1,13 @@
+[Host_server_info]
+name=server_name
+ip_addr=my.ip.addr.here
+max_fail_times=1
+sleep_time_seconds=600
+
+[Pushover_token]
+APP_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxx
+USER_KEY=xxxxxxxxxxxxxxxxxxxxxxxx
+
+[Clients_info]
+router=192.168.0.1
+host1=192.168.0.2
