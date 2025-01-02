@@ -388,6 +388,8 @@ def create_service(conf_path):
     if not conf_path.startswith('/'):
         cwd = os.getcwd()
         conf_path = os.path.join(cwd, conf_path)
+    if not os.path.exists(conf_path):
+        gen_conf(conf_path)
     bin_path = os.popen('which mypushover').read().strip()
     os.system(f'rm -rf /etc/systemd/system/mypushover.service')
     os.system(f'rm -rf /usr/lib/systemd/system/mypushover.service')
@@ -419,13 +421,19 @@ def disable_service():
     os.system(f'systemctl daemon-reload')
     os.system(f'systemctl reset-failed')
 
+def status_service():
+    os.system(f'systemctl status mypushover')
+
+def restart_service():
+    os.system(f'systemctl restart mypushover')
+
 def main():
     ver = getVersion()
     print(f'Version: {ver}')
     print(getUsage())
     is_outdated, latest = check_outdated("mypushover", ver)
     if is_outdated:
-        print("The package myhttps is out of date. Your version is %s, the latest is %s." % (ver, latest))
+        print("The package mypushover is out of date. Your version is %s, the latest is %s." % (ver, latest))
     if "-c" in sys.argv:
         conf_path = sys.argv[sys.argv.index("-c") + 1]
     else:
@@ -443,7 +451,15 @@ def main():
         disable_service()
         exit()
 
-    run(conf_path)
+    if "-status" in sys.argv:
+        status_service()
+        exit()
+
+    if "-restart" in sys.argv:
+        restart_service()
+        exit()
+
+    # run(conf_path)
 
 if __name__ == '__main__':
     main()

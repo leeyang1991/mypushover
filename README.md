@@ -17,5 +17,8 @@ If you want to run in background, root privilege is needed. Run
     -start          start service in background
     -stop           stop service
     -restart        restart service
+    -disable        disable service and remove startup script
+    -restart        restart service
+    -status         show service status
 
 configuration can refer to `pushover_conf.example`

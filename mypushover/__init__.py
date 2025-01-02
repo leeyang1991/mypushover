@@ -1,4 +1,4 @@
-__version__ = '0.0.5'
+__version__ = '0.0.6'
 __usage__ = """
     USAGE:
         As a module from any location
@@ -10,5 +10,8 @@ __usage__ = """
         -start          start service in background, and enable startup script
         -stop           stop service
         -restart        restart service
+        -disable        disable service and remove startup script
+        -restart        restart service
+        -status         show service status
 
 """
