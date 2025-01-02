@@ -459,7 +459,7 @@ def main():
         restart_service()
         exit()
 
-    # run(conf_path)
+    run(conf_path)
 
 if __name__ == '__main__':
     main()
