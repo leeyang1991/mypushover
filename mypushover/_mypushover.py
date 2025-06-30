@@ -229,7 +229,7 @@ def is_server_online(conf_path):
     host_server_name, APP_TOKEN, USER_KEY, server_ip_name_dict, max_fail_times,_,_ = get_conf(conf_path)
 
     server_ip_list = list(server_ip_name_dict.keys())
-    ping_results = multiping(server_ip_list, privileged=False)
+    ping_results = multiping(server_ip_list, privileged=False, count=5, interval=1)
     status_dict = {}
 
     for host in ping_results:
